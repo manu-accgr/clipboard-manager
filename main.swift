@@ -71,7 +71,9 @@ class ClipboardManager: NSObject {
         }
         
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "q"))
+        let quitMenuItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "q")
+        quitMenuItem.target = self
+        menu.addItem(quitMenuItem)
         
         statusItem.menu = menu
         statusItem.button?.performClick(nil)
